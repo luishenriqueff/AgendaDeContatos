@@ -349,8 +349,17 @@ public class TelaAgenda extends javax.swing.JFrame {
    * @param evt
    */
     private void mnuTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTrocarUsuarioActionPerformed
-      TelaLogin telaLogin = new TelaLogin(this, true);
-      telaLogin.setVisible(true);
+        TelaLogin telaLogin = new TelaLogin(this,true);
+        telaLogin.setVisible( true );
+        
+        if ( !telaLogin.getUsuario().isEmpty() ) {
+            lblUsuario.setText( telaLogin.getUsuario() );
+            lblNivel.setText( telaLogin.getNivel() );
+        }
+
+        lblSO.setText( descobreSO() );
+
+        telaLogin.dispose();
     }//GEN-LAST:event_mnuTrocarUsuarioActionPerformed
 
   private void mnuWindowsClassicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuWindowsClassicActionPerformed
@@ -378,19 +387,19 @@ public class TelaAgenda extends javax.swing.JFrame {
   }//GEN-LAST:event_mnuMetalActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      TelaLogin telaLogin = new TelaLogin(this,true);
-      telaLogin.setVisible( true );
-      
-      lblUsuario.setText( telaLogin.getUsuario() );
-      lblNivel.setText( telaLogin.getNivel() );
+        TelaLogin telaLogin = new TelaLogin(this,true);
+        telaLogin.setVisible( true );
 
-      if ( lblUsuario.getText().trim().isEmpty() ) {
+        lblUsuario.setText( telaLogin.getUsuario() );
+        lblNivel.setText( telaLogin.getNivel() );
+
+        if ( lblUsuario.getText().trim().isEmpty() ) {
             System.exit(0);
-      }
-         
-      lblSO.setText( descobreSO() );
+        }
 
-      telaLogin.dispose();
+        lblSO.setText( descobreSO() );
+
+        telaLogin.dispose();
       
     }//GEN-LAST:event_formWindowOpened
 
